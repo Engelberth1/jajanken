@@ -1,0 +1,47 @@
+html {
+    background:url('/img/1000_F_115575013_bGdWptTXmcWnYIYT3W9JyDWi4mTQHyGj.jpg');
+    background-size: cover;
+}
+.icon {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 250px;
+    font-size: 75px;
+    min-height: auto;
+    margin-top: 150px;
+    
+}
+.prompt{
+    display: flex;
+    flex: auto;
+    justify-content: center;
+    font-size: x-large;
+    color: rgb(167, 42, 0);   
+    background-color: antiquewhite; 
+    border:2px solid;
+    padding: 20px;
+    border-radius: 25px;
+    margin-left:100px ;
+    margin-right: 100px;
+    margin-top: 50px;
+}
+.rock,.paper,.scissors{
+    border: .2rem solid;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.529);
+}
+.score{
+    display: flex;
+    font-size: 50px;
+    font-weight: bold;
+    justify-content:center;
+    align-items: center;
+    margin-top: 200px;
+
+}
+.aiscore,.yourscore{
+    margin: 50px;
+}
