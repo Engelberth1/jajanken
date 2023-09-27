@@ -1,14 +1,23 @@
-let playerScore=document.querySelector(".yourscore")
+let playerScore=document.querySelector(".yourscore");
 let computerScore=document.querySelector(".aiscore");
-const myButton=document.querySelectorAll('.rock,.paper,.scissors')
-//const resultText=alert("")
+const myButton=document.querySelectorAll('.rock,.paper,.scissors');
+let congratulations=document.querySelector('.congratulations');
 let myChoice;
 let computerChoice;
+let player=0;
+let computer=0;
+
 
 myButton.forEach(button=>button.addEventListener('click',()=>{
     myChoice=button.className;
     console.log(myChoice)
     getComputerChoice();
+    getPlayRound(myChoice,computerChoice);
+    game();
+    playerScore.textContent=`AI score:${player}`;
+    computerScore.textContent=`Your score:${computer}`;
+    
+    
 
 function getComputerChoice(){
     let choice= Math.floor(Math.random()*3)+1;
@@ -22,7 +31,58 @@ function getComputerChoice(){
         console.log(computerChoice);
     
     };
-}))
+
+function getPlayRound(myChoice,computerChoice){
+    if(myChoice==computerChoice){
+        console.log("you both have chosen the same item!");
+    }
+    else if(myChoice=="paper"&& computerChoice=="rock"){
+        player++;
+        console.log("you've won paper beats rock! You have "+player+" points!");
+        return(player)
+    }
+    else if(myChoice=="paper"&& computerChoice=="scissors"){
+        computer++;
+        console.log("you've lost scissors beats paper! Your opponent has "+computer+" points" )
+        return(computer)
+    }
+    else if(myChoice=="rock"&& computerChoice=="paper"){
+        computer++;
+        console.log("you've lost paper beats rock! Your opponent has "+computer+" points")
+        return(computer)
+    }
+    else if(myChoice=="rock"&& computerChoice=="scissors"){
+        player++;
+        console.log("you've won rock beats scissors!  You have "+player+" points!")
+        return(player)
+    }
+    else if(myChoice=="scissors"&& computerChoice=="rock"){
+        computer++;
+        console.log("you've lost rock beats scissors! Your opponent has "+computer+" points")
+        return(computer)
+    }
+    else if(myChoice=="scissors"&& computerChoice=="paper"){
+        player++;
+        console.log("you've won scissors beats paper!  You have "+player+" points!")
+        return(player)
+    }
+    else
+        return("wtf.")  
+}
+
+function game(){
+    if (player==5){
+        alert("Congratulations, you won")
+        congratulations.textContent="You won out of 5 tries";
+        player=0  
+        }
+    else if(computer==5){
+        congratulations.textContent="You lost out of 5 tries";
+        alert("better luck next time")
+         computer=0
+        }
+    }
+    }))
 
 /*function getComputerChoice(){
   let choice= Math.floor(Math.random()*3)+1;
@@ -39,7 +99,7 @@ function getComputerChoice(){
 //let computerChoice=getComputerChoice();
 
 /*
-function getPlayerSelection(){
+function getcomputerChoice(){
     const myChoice=prompt("Enter your choice of rock paper or scissors").toLowerCase();
     if(myChoice=="rock"){
         return(myChoice);
@@ -53,63 +113,63 @@ function getPlayerSelection(){
     else
         return('This is neither "rock","paper", or "scissors"')
 }
-let playerSelection=getPlayerSelection();
-console.log(playerSelection)
+let computerChoice=getcomputerChoice();
+console.log(computerChoice)
 
 
 
 
-function getPlayRound(playerSelection,computerChoice){
-    if(playerSelection==computerChoice){
+function getPlayRound(computerChoice,computerChoice){
+    if(computerChoice==computerChoice){
        console.log("you both have chosen the same item!");
     }
-    else if(playerSelection=="paper"&& computerChoice=="rock"){
-        playerScore++;
-       console.log("you've won paper beats rock! You have "+playerScore+" points!");
-        return(playerScore)
+    else if(computerChoice=="paper"&& computerChoice=="rock"){
+        player++;
+       console.log("you've won paper beats rock! You have "+player+" points!");
+        return(player)
     }
-    else if(playerSelection=="paper"&& computerChoice=="scissors"){
-        computerScore++;
-       console.log("you've lost scissors beats paper! Your opponent has "+computerScore+" points" )
-        return(computerScore)
+    else if(computerChoice=="paper"&& computerChoice=="scissors"){
+        computer++;
+       console.log("you've lost scissors beats paper! Your opponent has "+computer+" points" )
+        return(computer)
     }
-    else if(playerSelection=="rock"&& computerChoice=="paper"){
-        computerScore++;
-       console.log("you've lost paper beats rock! Your opponent has "+computerScore+" points")
-       return(computerScore)
+    else if(computerChoice=="rock"&& computerChoice=="paper"){
+        computer++;
+       console.log("you've lost paper beats rock! Your opponent has "+computer+" points")
+       return(computer)
     }
-    else if(playerSelection=="rock"&& computerChoice=="scissors"){
-        playerScore++;
-       console.log("you've won rock beats scissors!  You have "+playerScore+" points!")
-       return(playerScore)
+    else if(computerChoice=="rock"&& computerChoice=="scissors"){
+        player++;
+       console.log("you've won rock beats scissors!  You have "+player+" points!")
+       return(player)
     }
-    else if(playerSelection=="scissors"&& computerChoice=="rock"){
-        computerScore++;
-       console.log("you've lost rock beats scissors! Your opponent has "+computerScore+" points")
-       return(computerScore)
+    else if(computerChoice=="scissors"&& computerChoice=="rock"){
+        computer++;
+       console.log("you've lost rock beats scissors! Your opponent has "+computer+" points")
+       return(computer)
     }
-    else if(playerSelection=="scissors"&& computerChoice=="paper"){
-        playerScore++;
-       console.log("you've won scissors beats paper!  You have "+playerScore+" points!")
-       return(playerScore)
+    else if(computerChoice=="scissors"&& computerChoice=="paper"){
+        player++;
+       console.log("you've won scissors beats paper!  You have "+player+" points!")
+       return(player)
     }
-    else
+    else{
         return("wtf.")
 }
-let playRound=getPlayRound(playerSelection,computerChoice)
+let playRound=getPlayRound(computerChoice,computerChoice)
 console.log(playRound)
 
 
 function game(){
-    while(computerScore<=5 && playerScore<=5){
+    while(computer<=5 && player<=5){
         let computerChoice = getComputerChoice();
-        let playerSelection = getPlayerSelection();
-         getPlayRound(playerSelection, computerChoice);
+        let computerChoice = getcomputerChoice();
+         getPlayRound(computerChoice, computerChoice);
 
-    if (playerScore==5){
+    if (player==5){
         return console.log("you won")    
         }
-    else if(computerScore==5){
+    else if(computer==5){
         return console.log("You lost")
             }    }
     }

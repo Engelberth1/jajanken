@@ -39,9 +39,16 @@ html {
     font-weight: bold;
     justify-content:center;
     align-items: center;
-    margin-top: 200px;
-
+    margin-top: 100px;
+    gap: 50px;
 }
 .aiscore,.yourscore{
-    margin: 50px;
+    margin-bottom:50px;
+    
+}
+.congratulations{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 50px;
+    font-weight:941;
 }
