@@ -24,8 +24,8 @@ myButton.forEach(button=>button.addEventListener('click',()=>{
     getComputerChoice();
     getPlayRound(myChoice,computerChoice);
     game();
-    playerScore.textContent=`AI score:${player}`;
-    computerScore.textContent=`Your score:${computer}`;
+    playerScore.textContent=`Your score:${player}`;
+    computerScore.textContent=`AI score:${computer}`;
     
 
 
