@@ -9,6 +9,16 @@ let computer=0;
 
 
 myButton.forEach(button=>button.addEventListener('click',()=>{
+    button.style.transform = 'scale(1.1)';
+    button.style.borderColor = '#ffc600';
+    button.style.boxShadow = '0 0 1rem #ffc600';
+
+    setTimeout(() => {
+        button.style.transform = 'none';
+        button.style.borderColor = 'rgba(0, 0, 0, 0.529)';
+        button.style.boxShadow = 'none';
+    }, 200);
+
     myChoice=button.className;
     console.log(myChoice)
     getComputerChoice();
@@ -17,7 +27,8 @@ myButton.forEach(button=>button.addEventListener('click',()=>{
     playerScore.textContent=`AI score:${player}`;
     computerScore.textContent=`Your score:${computer}`;
     
-    
+
+
 
 function getComputerChoice(){
     let choice= Math.floor(Math.random()*3)+1;
@@ -83,6 +94,8 @@ function game(){
         }
     }
     }))
+   
+
 
 /*function getComputerChoice(){
   let choice= Math.floor(Math.random()*3)+1;
